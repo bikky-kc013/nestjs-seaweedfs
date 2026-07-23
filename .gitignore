@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+*.js
+*.d.ts
+*.js.map
+*.mjs
+!jest.config.ts
+!jest-e2e.config.ts
+!tsup.config.ts
