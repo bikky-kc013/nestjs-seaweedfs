@@ -8,8 +8,9 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2021",
     "sourceMap": true,
+    "types": ["node", "jest"],
+    "rootDir": ".",
     "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,7 +23,7 @@
     "esModuleInterop": true,
     "lib": ["ES2021"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"],

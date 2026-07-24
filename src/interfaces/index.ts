@@ -1,9 +1,14 @@
 import { ModuleMetadata, Type } from '@nestjs/common';
 
+export type SeaweedFsFilerAuth =
+  | { type: 'basic'; username: string; password: string }
+  | { type: 'bearer'; token: string }
+  | { type: 'header'; name: string; value: string };
 export interface SeaweedFsFilerOptions {
   url: string;
   timeout?: number;
   retries?: number;
+  auth?: SeaweedFsFilerAuth;
 }
 
 export interface SeaweedFsS3Options {
@@ -30,7 +35,7 @@ export interface SeaweedFsModuleOptionsFactory {
 export interface SeaweedFsModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
   useExisting?: Type<SeaweedFsModuleOptionsFactory>;
   useClass?: Type<SeaweedFsModuleOptionsFactory>;
-  useFactory?: (...args: unknown[]) => Promise<SeaweedFsModuleOptions> | SeaweedFsModuleOptions;
+  useFactory?: (...args: any[]) => Promise<SeaweedFsModuleOptions> | SeaweedFsModuleOptions;
   inject?: (string | symbol | Type<unknown>)[];
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "nestjs-seaweedfs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Production-grade NestJS SDK for SeaweedFS — Filer REST API + S3 Gateway API",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
