@@ -1,6 +1,6 @@
 {
   "name": "nestjs-seaweedfs",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Production-grade NestJS SDK for SeaweedFS — Filer REST API + S3 Gateway API",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -87,8 +87,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourscope/nestjs-seaweedfs.git"
+    "url": "https://github.com/bikky-kc013/nestjs-seaweedfs"
   },
+  "homepage": "https://human-forge.gitbook.io/nestjs-seaweedfs",
   "engines": {
     "node": ">=18.0.0"
   }
