@@ -41,7 +41,9 @@ export class SeaweedFsFilerService implements OnModuleInit {
       responseType: 'arraybuffer',
       headers: {
         'Content-Type': 'application/octet-stream',
+        ...this.buildAuthHeaders(),
       },
+      ...this.buildAuthConfig(),
     });
 
     if (this.options.validateConnectionOnBoot !== false) {
@@ -49,9 +51,35 @@ export class SeaweedFsFilerService implements OnModuleInit {
     }
   }
 
+  private buildAuthConfig(): Partial<{ auth: { username: string; password: string } }> {
+    const auth = this.options.filer.auth;
+    if (auth?.type === 'basic') {
+      return { auth: { username: auth.username, password: auth.password } };
+    }
+    return {};
+  }
+
+  private buildAuthHeaders(): Record<string, string> {
+    const auth = this.options.filer.auth;
+    if (!auth) return {};
+    switch (auth.type) {
+      case 'basic':
+        return {};
+      case 'bearer':
+        return { Authorization: `Bearer ${auth.token}` };
+      case 'header':
+        return { [auth.name]: auth.value };
+      default:
+        const _exhaustive: never = auth;
+        return _exhaustive;
+    }
+  }
+
   private async validateConnection(): Promise<void> {
     try {
-      await this.httpClient.get('/dir/lookup?path=/');
+      await this.httpClient.get('/', {
+        headers: { Accept: 'application/json', 'Content-Type': 'application/octet-stream' },
+      });
       this.logger.log('Filer connection validated successfully');
     } catch (error) {
       throw new SeaweedFsConnectionError(
@@ -61,7 +89,6 @@ export class SeaweedFsFilerService implements OnModuleInit {
       );
     }
   }
-
   private async requestWithRetry<T>(
     method: 'get' | 'post' | 'put' | 'delete',
     url: string,
