@@ -75,7 +75,11 @@ You can also use a factory class:
 ```typescript
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { SeaweedFsModule, SeaweedFsModuleOptionsFactory, SeaweedFsModuleOptions } from 'nestjs-seaweedfs';
+import {
+  SeaweedFsModule,
+  SeaweedFsModuleOptionsFactory,
+  SeaweedFsModuleOptions,
+} from 'nestjs-seaweedfs';
 
 @Injectable()
 export class SeaweedFsConfigService implements SeaweedFsModuleOptionsFactory {
@@ -125,22 +129,22 @@ export class AppModule {}
 
 ### `SeaweedFsModuleOptions`
 
-| Option | Type | Required | Default | Description |
-|--------|------|----------|---------|-------------|
-| `filer` | `SeaweedFsFilerOptions` | Yes | — | Filer API configuration |
-| `s3` | `SeaweedFsS3Options` | Yes | — | S3 Gateway configuration |
-| `masterUrl` | `string` | No | — | Master server URL (required for `assignVolume()`) |
-| `isGlobal` | `boolean` | No | `true` | Whether the module is global |
-| `validateConnectionOnBoot` | `boolean` | No | `true` | Validate Filer and S3 connectivity on boot |
+| Option                     | Type                    | Required | Default | Description                                       |
+| -------------------------- | ----------------------- | -------- | ------- | ------------------------------------------------- |
+| `filer`                    | `SeaweedFsFilerOptions` | Yes      | —       | Filer API configuration                           |
+| `s3`                       | `SeaweedFsS3Options`    | Yes      | —       | S3 Gateway configuration                          |
+| `masterUrl`                | `string`                | No       | —       | Master server URL (required for `assignVolume()`) |
+| `isGlobal`                 | `boolean`               | No       | `true`  | Whether the module is global                      |
+| `validateConnectionOnBoot` | `boolean`               | No       | `true`  | Validate Filer and S3 connectivity on boot        |
 
 ### `SeaweedFsFilerOptions`
 
-| Option | Type | Required | Default | Description |
-|--------|------|----------|---------|-------------|
-| `url` | `string` | Yes | — | Filer REST API URL |
-| `timeout` | `number` | No | `30000` | Request timeout in milliseconds |
-| `retries` | `number` | No | `3` | Maximum retry attempts for transient errors |
-| `auth` | `SeaweedFsFilerAuth` | No | — | Authentication configuration |
+| Option    | Type                 | Required | Default | Description                                 |
+| --------- | -------------------- | -------- | ------- | ------------------------------------------- |
+| `url`     | `string`             | Yes      | —       | Filer REST API URL                          |
+| `timeout` | `number`             | No       | `30000` | Request timeout in milliseconds             |
+| `retries` | `number`             | No       | `3`     | Maximum retry attempts for transient errors |
+| `auth`    | `SeaweedFsFilerAuth` | No       | —       | Authentication configuration                |
 
 ### `SeaweedFsFilerAuth`
 
@@ -170,14 +174,14 @@ auth: {
 
 ### `SeaweedFsS3Options`
 
-| Option | Type | Required | Default | Description |
-|--------|------|----------|---------|-------------|
-| `endpoint` | `string` | Yes | — | S3 Gateway endpoint URL |
-| `accessKeyId` | `string` | Yes | — | S3 access key |
-| `secretAccessKey` | `string` | Yes | — | S3 secret key |
-| `region` | `string` | No | `us-east-1` | AWS region (not used by SeaweedFS, but required by SDK) |
-| `forcePathStyle` | `boolean` | No | `true` | Use path-style URLs (required by SeaweedFS) |
-| `defaultBucket` | `string` | No | — | Default bucket name (used when bucket is not specified) |
+| Option            | Type      | Required | Default     | Description                                             |
+| ----------------- | --------- | -------- | ----------- | ------------------------------------------------------- |
+| `endpoint`        | `string`  | Yes      | —           | S3 Gateway endpoint URL                                 |
+| `accessKeyId`     | `string`  | Yes      | —           | S3 access key                                           |
+| `secretAccessKey` | `string`  | Yes      | —           | S3 secret key                                           |
+| `region`          | `string`  | No       | `us-east-1` | AWS region (not used by SeaweedFS, but required by SDK) |
+| `forcePathStyle`  | `boolean` | No       | `true`      | Use path-style URLs (required by SeaweedFS)             |
+| `defaultBucket`   | `string`  | No       | —           | Default bucket name (used when bucket is not specified) |
 
 ## Feature-Level Modules
 
