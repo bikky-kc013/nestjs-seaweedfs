@@ -89,6 +89,7 @@
     "type": "git",
     "url": "https://github.com/bikky-kc013/nestjs-seaweedfs"
   },
+  "homepage": "https://human-forge.gitbook.io/nestjs-seaweedfs",
   "engines": {
     "node": ">=18.0.0"
   }
