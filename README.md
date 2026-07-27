@@ -1,16 +1,37 @@
-# nestjs-seaweedfs
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://www.npmjs.com/package/nestjs-seaweedfs)
-
-> **Unofficial, community-maintained** NestJS SDK for [SeaweedFS](https://github.com/seaweedfs/seaweedfs).
-> Full support for both the **Filer REST API** and the **S3 Gateway API** as first-class features.
->
-> Not affiliated with, endorsed by, or associated with NestJS, SeaweedFS, or their respective maintainers.
+<p align="center">
+  <img src="assets/nestjs-seaweedfs-icon.svg" width="140" alt="nestjs-seaweedfs" />
+</p>
 
 <p align="center">
-  <img src="assets/nestjs-seaweedfs-icon.svg" width="128" alt="nestjs-seaweedfs icon" />
+  Unofficial, community-maintained, production-ready NestJS SDK for <a href="https://github.com/seaweedfs/seaweedfs">SeaweedFS</a>.
 </p>
+
+<p align="center">
+  <strong>Filer REST API</strong> • <strong>S3 Gateway API</strong> • <strong>TypeScript</strong> • <strong>NestJS Dynamic Modules</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/nestjs-seaweedfs"><img src="https://img.shields.io/badge/version-1.0.3-blue.svg" alt="Version" /></a>
+  <a href="https://www.npmjs.com/package/nestjs-seaweedfs"><img src="https://img.shields.io/npm/dt/nestjs-seaweedfs.svg" alt="npm downloads" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a>
+  <img src="https://img.shields.io/badge/TypeScript-Ready-blue" alt="TypeScript" />
+</p>
+
+> Full support for both the **Filer REST API** and the **S3 Gateway API** as first-class features.
+> Not affiliated with, endorsed by, or associated with NestJS, SeaweedFS, or their respective maintainers.
+
+### Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [API Reference](#api-reference)
+- [Configuration](#configuration)
+- [Documentation](#documentation)
+- [Compatibility](#compatibility)
+- [Contributing](#contributing)
+- [Support](#support)
+- [License](#license)
 
 ## Features
 
@@ -101,17 +122,8 @@ export class FileService {
 | `s3ListBuckets()`                                      | List all buckets                  |
 | `s3GetPresignedUploadUrl(bucket, key, options?)`       | Generate presigned upload URL     |
 | `s3GetPresignedDownloadUrl(bucket, key, options?)`     | Generate presigned download URL   |
-| `s3SetBucketPolicy(bucket, policy)`                    | Throws unsupported error          |
 
-## Documentation
-
-| Guide                                            | Description                                       |
-| ------------------------------------------------ | ------------------------------------------------- |
-| [Getting Started](docs/getting-started.md)       | Installation, peer dependencies, and verification |
-| [Quick Start](docs/quick-start.md)               | Get running in under 5 minutes                    |
-| [NestJS Integration](docs/nestjs-integration.md) | Module configuration, async setup, DI             |
-| [Filer API](docs/filer-api.md)                   | Full Filer REST API operations reference          |
-| [S3 API](docs/s3-api.md)                         | S3 Gateway operations including presigned URLs    |
+> **Note:** `s3SetBucketPolicy(bucket, policy)` exists on the service but is not supported by SeaweedFS's S3 Gateway — calling it throws.
 
 ## Configuration
 
@@ -132,10 +144,59 @@ interface SeaweedFsModuleOptions {
 }
 ```
 
-## Support
+---
 
-- Report issues: [GitHub Issues](https://github.com/yourscope/nestjs-seaweedfs/issues)
+# Documentation
 
-## License
+| Guide                                            | Description                                       |
+| ------------------------------------------------ | -------------------------------------------------- |
+| [Getting Started](docs/getting-started.md)       | Installation and verification                     |
+| [Quick Start](docs/quick-start.md)               | Five-minute setup                                 |
+| [NestJS Integration](docs/nestjs-integration.md) | Dependency injection and module configuration     |
+| [Filer API](docs/filer-api.md)                   | Complete Filer REST reference                     |
+| [S3 API](docs/s3-api.md)                         | Complete S3 Gateway reference                     |
 
-MIT
+---
+
+# Compatibility
+
+| Package     | Version |
+| ----------- | ------- |
+| NestJS      | 10+     |
+| TypeScript  | 5+      |
+| Node.js     | 18+     |
+| SeaweedFS   | Compatible with current stable releases |
+
+
+---
+
+# Contributing
+
+Contributions are welcome! If you'd like to improve the library:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
+
+Bug reports and feature requests are also appreciated.
+
+---
+
+# Support
+
+- Report bugs via [GitHub Issues](https://github.com/bikky-kc013/nestjs-seaweedfs/issues)
+- Feature requests are welcome
+- Questions and discussions are encouraged
+
+---
+
+# License
+
+MIT License
+
+---
+
+<p align="center">
+  Made for the NestJS and SeaweedFS communities.
+</p>
