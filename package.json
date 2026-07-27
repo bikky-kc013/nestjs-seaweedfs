@@ -76,13 +76,18 @@
   },
   "keywords": [
     "nestjs",
+    "nestjs-module",
     "seaweedfs",
+    "seaweedfs-client",
+    "seaweedfs-filer",
+    "seaweedfs-s3",
     "filer",
     "s3",
     "object-storage",
-    "file-system",
-    "module",
-    "dii"
+    "file-storage",
+    "storage",
+    "typescript",
+    "nodejs"
   ],
   "license": "MIT",
   "repository": {
